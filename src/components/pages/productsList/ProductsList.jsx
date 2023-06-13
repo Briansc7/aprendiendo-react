@@ -3,7 +3,7 @@ import axios from "axios";
 import { CartContext } from "../../../context/CartContext";
 
 const ProductsList = () => {
-  const { agregarAlCarrito } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,12 +18,16 @@ const ProductsList = () => {
 
   return (
     <div>
-      {products.map(({ id, title, image }) => {
+      {products.map(({ product }) => {
         return (
-          <div key={id}>
-            <h2>{title}</h2>
-            <img src={image} alt="" style={{ width: "200px" }} />
-            <button onClick={agregarAlCarrito}>Agregar</button>
+          <div key={product.id}>
+            <h2>{product.title}</h2>
+            <img src={product.image} alt="" style={{ width: "200px" }} />
+            <button
+              onClick={() => dispatch({ type: "addToCart", payload: product })}
+            >
+              Agregar
+            </button>
           </div>
         );
       })}

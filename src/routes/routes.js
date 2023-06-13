@@ -1,7 +1,7 @@
 import Cart from "../components/pages/cart/Cart";
 import Home from "../components/pages/home/Home";
-import Login from "../components/pages/login/Login";
-import ProductsList from "../components/pages/productsList/ProductsList";
+import LoginFormik from "../components/pages/login/LoginFormik";
+import ProductsListContainer from "../components/pages/productsList/ProductsListContainer";
 
 export const routes = [
   {
@@ -12,12 +12,12 @@ export const routes = [
   {
     id: "login",
     path: "/login",
-    Element: Login,
+    Element: LoginFormik,
   },
   {
     id: "productList",
     path: "/products",
-    Element: ProductsList,
+    Element: ProductsListContainer,
   },
   {
     id: "cart",
